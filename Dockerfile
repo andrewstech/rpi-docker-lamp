@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:latest
+FROM tmb28054/rpi-raspbian:latest
 MAINTAINER Oscar Ortegano <oscarortegano@gmail.com>,Joaquín de la Zerda <joaquindelazerda@gmail.com>, Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
 
 # Install packages
