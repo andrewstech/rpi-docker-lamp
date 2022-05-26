@@ -1,19 +1,13 @@
-FROM tmb28054/rpi-raspbian:latest
-MAINTAINER Oscar Ortegano <oscarortegano@gmail.com>,Joaquín de la Zerda <joaquindelazerda@gmail.com>, Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
+FROM ubuntu:latest
+
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-  apt-get install wget apt-transport-https ca-certificates -y
+  apt-get install apache2 php wget -y
 
-RUN  wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -  && \
-  echo "deb https://packages.sury.org/php/ jessie main" | sudo tee /etc/apt/sources.list.d/php7.list
-
-RUN apt-get update && \
-  apt-get purge 'php5*' -y
-
-RUN apt-get -y install supervisor git php7.0 php7.0-mysql apache2 libapache2-mod-php7.0 mariadb-server pwgen nano
+RUN apt-get -y install supervisor git php-mysql mariadb-server pwgen nano
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts
